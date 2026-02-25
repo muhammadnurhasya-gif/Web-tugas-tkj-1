@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Biodata Dua Orang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .biodata-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .biodata-box {
+            background-color: white;
+            border: 3px solid #0077be; /* Border biru */
+            border-radius: 15px; /* Agak bulat */
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        
+        .biodata-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .biodata-box h3 {
+            margin-top: 0;
+            color: #0077be;
+        }
+        
+        .link-container {
+            margin-top: 30px;
+        }
+        
+        .link-container a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #0077be;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        
+        .link-container a:hover {
+            background-color: #005a8c;
+        }
+        
+        .content-display {
+            margin-top: 30px;
+            display: none; /* Awalnya tersembunyi */
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Website Biodata Dua Orang</h1>
+    
+    <div class="biodata-container">
+        <div class="biodata-box">
+            <img src="https://uploads.onecompiler.io/43ygjgmfb/43ygjk7g9/1000373374.jpg" alt="Foto Muhammad Nurhasya">
+            <h3>Data Diri 1</h3>
+            <p><strong>Nama:</strong> Muhammad Nurhasya</p>
+            <p><strong>Usia:</strong> 15</p>
+            <p><strong>Alamat:</strong> Bratang Gede 1 no 64A</p>
+            <p><strong>Hobi:</strong> Joging</p>
+        </div>
+        
+        <div class="biodata-box">
+            <img src="https://uploads.onecompiler.io/43ygjgmfb/445xtycku/1000445411.jpg" alt="Foto Riqki Andika">
+            <h3>Data Diri 2</h3>
+            <p><strong>Nama:</strong> Riqki Andika</p>
+            <p><strong>Usia:</strong> 16</p>
+            <p><strong>Alamat:</strong> Mojo kidul no 62A</p>
+            <p><strong>Hobi:</strong> Work out</p>
+        </div>
+    </div>
+    
+    <div class="link-container">
+        <a href="#" onclick="showContent('shark')">Lihat Materi Hiu Putih Besar</a>
+        <a href="#" onclick="showContent('bugatti')">Lihat Materi Mobil Bugatti</a>
+    </div>
+    
+    <div id="content-display" class="content-display"></div>
+    
+    <script>
+        // Konten web kedua (Hiu Putih Besar) - diekstrak dari div content-box
+        const sharkContent = `
+            <h1>Hiu Putih Besar (Carcharodon carcharias)</h1>
+            <img src="https://uploads.onecompiler.io/43ygjgmfb/445v62xev/1000442081.jpg" alt="Hiu Putih Besar" style="width: 100%; height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 20px;">
+            <h2>Deskripsi Umum</h2>
+            <p>Hiu putih besar adalah spesies hiu terbesar dan paling terkenal di dunia. Mereka dikenal sebagai predator puncak di laut dan sering digambarkan dalam film seperti "Jaws". Hiu ini memiliki tubuh yang kuat, sirip punggung yang tinggi, dan gigi yang tajam seperti pisau.</p>
+            <h2>Spesifikasi Detail</h2>
+            <table class="spec-table" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2; color: #333;">Spesifikasi</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2; color: #333;">Detail</th>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Nama Ilmiah</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Carcharodon carcharias</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Panjang Maksimal</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Hingga 6 meter (20 kaki)</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Berat Maksimal</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Hingga 2.200 kg (4.850 pon)</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Habitat</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Perairan dingin seperti Samudra Atlantik, Pasifik, dan Hindia; sering dekat pantai atau di laut terbuka</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Diet</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Ikan, mamalia laut seperti anjing laut, paus kecil, dan kadang-kadang bangkai</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Kecepatan</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Hingga 56 km/jam (35 mph) dalam ledakan singkat</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Umur Hidup</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Hingga 70 tahun</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Status Konservasi</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Terancam punah (Vulnerable) menurut IUCN</td>
+                </tr>
+            </table>
+            <h2>Cara Reproduksi</h2>
+            <p>Hiu putih besar bereproduksi secara ovovivipar, yang berarti telur menetas di dalam tubuh induk sebelum anak hiu dilahirkan hidup. Proses ini disebut juga sebagai "vivipar ovipar".</p>
+            <ul>
+                <li><strong>Perkawinan:</strong> Hiu jantan menggunakan gigi khusus untuk menahan hiu betina selama perkawinan.</li>
+                <li><strong>Kehamilan:</strong> Periode kehamilan berlangsung sekitar 11 bulan.</li>
+                <li><strong>Jumlah Anak:</strong> Biasanya 2-10 anak hiu per kelahiran, dengan panjang sekitar 1-1,5 meter saat lahir.</li>
+                <li><strong>Interval Reproduksi:</strong> Hiu betina dapat melahirkan setiap 2-3 tahun.</li>
+            </ul>
+            <h2>Fakta Menarik</h2>
+            <ul>
+                <li>Hiu putih besar memiliki indra penciuman yang sangat tajam, dapat mendeteksi darah dari jarak 5 km.</li>
+                <li>Mereka memiliki gigi yang dapat diganti seumur hidup, dengan sekitar 300 gigi di mulut.</li>
+                <li>Meskipun terkenal sebagai predator, hiu ini jarang menyerang manusia; kebanyakan interaksi adalah kesalahpahaman.</li>
+            </ul>
+        `;
+        
+        // Konten web ketiga (Mobil Bugatti) - diekstrak dari div content-box
+        const bugattiContent = `
+            <h1>Bugatti - Mobil Supercar Legendaris</h1>
+            <img src="https://uploads.onecompiler.io/43ygjgmfb/445v52yzv/1000442072.jpg" alt="Mobil Bugatti" style="width: 100%; height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 20px;">
+            <h2>Sejarah Bugatti</h2>
+            <p>Bugatti adalah perusahaan otomotif Prancis yang didirikan oleh Ettore Bugatti pada tahun 1909. Dikenal dengan mobil balap dan supercar mewah, Bugatti telah memproduksi kendaraan ikonik yang memenangkan banyak balapan. Saat ini, Bugatti dimiliki oleh Volkswagen Group dan fokus pada supercar hyper-performance.</p>
+            <h2>Nama Seri/Model Populer</h2>
+            <ul>
+                <li><strong>Bugatti Chiron:</strong> Model terbaru, supercar hyper-performance dengan kecepatan maksimal 420 km/jam.</li>
+                <li><strong>Bugatti Veyron:</strong> Model legendaris yang memperkenalkan supercar dengan kecepatan di atas 400 km/jam.</li>
+                <li><strong>Bugatti Divo:</strong> Versi track-focused dari Chiron, dengan aerodinamika yang ditingkatkan.</li>
+                <li><strong>Bugatti Centodieci:</strong> Edisi terbatas untuk merayakan 110 tahun Bugatti, hanya 10 unit diproduksi.</li>
+                <li><strong>Bugatti La Voiture Noire:</strong> Mobil hyper-luks satu-satunya, dengan harga sekitar 11 juta euro.</li>
+                <li><strong>Bugatti Type 35:</strong> Mobil balap klasik dari era 1920-an yang memenangkan banyak Grand Prix.</li>
+            </ul>
+            <h2>Spesifikasi Detail (Contoh: Bugatti Chiron)</h2>
+            <table class="spec-table" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2; color: #333;">Spesifikasi</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2; color: #333;">Detail</th>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Mesin</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">W-16 quad-turbocharged, 8.0 liter</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Tenaga</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">1.500 hp (1.118 kW)</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Torsi</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">1.180 Nm</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Kecepatan Maksimal</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">420 km/jam (261 mph)</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Akselerasi 0-100 km/jam</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">2,5 detik</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Berat</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">1.996 kg</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Transmisi</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">7-speed dual-clutch automatic</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Harga</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Sekitar 3 juta euro</td>
+                </tr>
+            </table>
+            <h2>Fitur Utama</h2>
+            <ul>
+                <li><strong>Mesin W-16:</strong> Mesin 16 silinder yang legendaris, menghasilkan tenaga luar biasa.</li>
+                <li><strong>Aerodinamika Canggih:</strong> Desain yang mengoptimalkan downforce dan efisiensi.</li>
+                <li><strong>Interior Mewah:</strong> Bahan kulit, alumunium, dan teknologi canggih seperti layar sentuh.</li>
+                <li><strong>Sistem Keselamatan:</strong> ABS, kontrol traksi, dan airbag untuk performa tinggi.</li>
+            </ul>
+            <h2>Fakta Menarik</h2>
+            <ul>
+                <li>Bugatti Chiron adalah mobil produksi tercepat di dunia.</li>
+                <li>Nama "Chiron" diambil dari pembalap Louis Chiron, pemenang Grand Prix.</li>
+                <li>Bugatti telah memenangkan lebih dari 2.000 balapan sejak didirikan.</li>
+            </ul>
+        `;
+        
+        function showContent(type) {
+            const displayDiv = document.getElementById('content-display');
+            if (type === 'shark') {
+                displayDiv.innerHTML = sharkContent;
+            } else if (type === 'bugatti') {
+                displayDiv.innerHTML = bugattiContent;
+            }
+            displayDiv.style.display = 'block'; // Tampilkan konten
+        }
+    </script>
+</body>
+</html>
