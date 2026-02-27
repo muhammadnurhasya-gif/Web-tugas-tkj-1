@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Kumpulan Konten</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            background-color: white;
+            color: #333;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background-color: #ffd700;
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn.active {
+            background-color: #ffd700;
+        }
+        
+        .page {
+            display: none;
+            padding: 20px;
+            min-height: calc(100vh - 70px);
+        }
+        
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        #biodata { background-color: #f0f0f0; }
+        
+        .main-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 2.5em;
+        }
+        
+        .biodata-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .biodata-box {
+            background-color: white;
+            border: 3px solid #0077be;
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .biodata-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .biodata-box h3 {
+            margin-top: 0;
+            color: #0077be;
+        }
+        
+        .tugas-container {
+            max-width: 800px;
+            margin: 30px auto;
+            text-align: center;
+        }
+        
+        .tugas-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 30px;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .tugas-box h2 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .tugas-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tugas-link {
+            background-color: white;
+            color: #333;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .tugas-link:hover {
+            background-color: #ffd700;
+            transform: translateY(-2px);
+        }
+        
+        #stone { background-color: #f5f5f5; }
+        
+        .container-stone {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-stone {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .header-stone h1 { color: #333; }
+        
+        .content-stone h2 {
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .content-stone p { line-height: 1.8; color: #555; }
+        .content-stone ul { margin-left: 20px; line-height: 1.8; }
+        .content-stone a { color: #667eea; }
+        .content-stone img { max-width: 100%; border-radius: 8px; margin: 15px 0; }
+        
+        #naruto { background-color: #FFA500; }
+        
+        .container-naruto {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #FFF;
+            border: 5px solid #FFD700;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .logo-naruto { text-align: center; margin-bottom: 20px; }
+        .logo-naruto img { max-width: 300px; }
+        
+        .title-naruto { text-align: center; color: #FFA500; margin-bottom: 20px; }
+        
+        .content-naruto h2 { color: #FF4500; margin-top: 20px; margin-bottom: 10px; }
+        .content-naruto p { line-height: 1.8; color: #333; }
+        .content-naruto ul { margin-left: 20px; line-height: 1.8; }
+        
+        #mosasaurus {
+            background: linear-gradient(to bottom, #4facfe, #00f2fe, #00d4aa, #00a8cc);
+        }
+        
+        .container-mosasaurus {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .header-mosasaurus {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .header-mosasaurus h1 { font-size: 3em; }
+        
+        .section-mosasaurus {
+            background-color: rgba(255,255,255,0.95);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .section-mosasaurus h2 {
+            color: #0077be;
+            border-bottom: 2px solid #0077be;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .section-mosasaurus p { line-height: 1.8; color: #333; margin-bottom: 15px; }
+        .section-mosasaurus ul { margin-left: 20px; line-height: 1.8; }
+        .section-mosasaurus img { width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; margin: 15px 0; }
+        
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .spec-table th, .spec-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        .spec-table th { background-color: #0077be; color: white; }
+        
+        .footer-page {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-btn { padding: 10px 15px; font-size: 12px; }
+            .biodata-box { width: 100%; }
+            .header-mosasaurus h1 { font-size: 2em; }
+            .tugas-links { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <button class="nav-btn active" onclick="showPage('biodata', this)">👥 Biodata</button>
+            <button class="nav-btn" onclick="showPage('stone', this)">👟 Stone Island</button>
+            <button class="nav-btn" onclick="showPage('naruto', this)">🍥 Naruto</button>
+            <button class="nav-btn" onclick="showPage('mosasaurus', this)">🦎 Mosasaurus</button>
+        </div>
+    </nav>
+    
+    <div id="biodata" class="page active">
+        <h1 class="main-title">Website Biodata</h1>
+        
+        <div class="biodata-container">
+            <div class="biodata-box">
+                <img src="https://uploads.onecompiler.io/43ygjgmfb/43ygjk7g9/1000373374.jpg" alt="Foto Muhammad Nurhasya">
+                <h3>Data Diri</h3>
+                <p><strong>Nama:</strong> Muhammad Nurhasya</p>
+                <p><strong>Usia:</strong> 15 tahun</p>
+                <p><strong>Alamat:</strong> Bratang Gede 1 no 64A</p>
+                <p><strong>Hobi:</strong> Joging</p>
+            </div>
+        </div>
+        
+        <div class="tugas-container">
+            <div class="tugas-box">
+                <h2>Tugas Semester 1</h2>
+                <div class="tugas-links">
+                    <a href="https://muhammadnurhasya-gif.github.io/Web-tugas-tkj-1/Tugas%20Hiu.html" class="tugas-link" target="_blank">🦈 Tugas Hiu</a>
+                    <a href="https://muhammadnurhasya-gif.github.io/Web-tugas-tkj-1/tugas%20mobil.html" class="tugas-link" target="_blank">🏎️ Tugas Mobil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="stone" class="page">
+        <div class="container-stone">
+            <div class="header-stone">
+                <h1>Sepatu Stone Island Cream White</h1>
+                <p>Desain Elegan dan Fungsional untuk Gaya Modern</p>
+            </div>
+            
+            <div class="content-stone">
+                <h2>Tentang Produk</h2>
+                <p>Sepatu Stone Island cream white menawarkan kombinasi sempurna antara kenyamanan dan gaya. Dibuat dari bahan premium seperti nylon atau kulit sintetis, sepatu ini tahan lama dan cocok untuk berbagai aktivitas.</p>
+                
+                <h2>Fitur Utama</h2>
+                <ul>
+                    <li>Warna krem putih yang netral dan mudah dipadukan</li>
+                    <li>Bahan tahan air dan ringan</li>
+                    <li>Logo Stone Island yang subtil</li>
+                    <li>Tersedia dalam berbagai ukuran (EU 40-46)</li>
+                </ul>
+                
+                <h2>Gambar Produk</h2>
+                <img src="https://uploads.onecompiler.io/43ygjgmfb/44cpp8ags/1000490705.jpg" alt="Sepatu Stone Island">
+                
+                <h2>Harga dan Ketersediaan</h2>
+                <p>Harga mulai dari $500. Beli di <a href="https://www.stoneisland.com" target="_blank">stoneisland.com</a></p>
+            </div>
+            
+            <div class="footer-page">
+                <p>&copy; 2023 Template Web Sepatu Stone Island</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="naruto" class="page">
+        <div class="container-naruto">
+            <div class="logo-naruto">
+                <img src="https://uploads.onecompiler.io/43ygjgmfb/44cpp8ags/1000490708.jpg" alt="Logo Naruto">
+            </div>
+            
+            <div class="title-naruto">
+                <h1>Selamat Datang di Website Naruto</h1>
+            </div>
+            
+            <div class="content-naruto">
+                <h2>Apa Itu Naruto?</h2>
+                <p>Naruto adalah seri anime dan manga Jepang yang dibuat oleh Masashi Kishimoto. Cerita utamanya mengikuti kehidupan Naruto Uzumaki, seorang ninja muda yang bermimpi menjadi Hokage.</p>
+                
+                <h2>Karakter Utama</h2>
+                <ul>
+                    <li><strong>Naruto Uzumaki</strong> - Karakter utama, siswa Akademi Ninja</li>
+                    <li><strong>Sasuke Uchiha</strong> - Teman sekelas Naruto</li>
+                    <li><strong>Sakura Haruno</strong> - Teman sekelas Naruto</li>
+                    <li><strong>Kakashi Hatake</strong> - Guru mereka</li>
+                </ul>
+                
+                <h2>Teknik Khusus</h2>
+                <ul>
+                    <li><strong>Shadow Clone Technique</strong> - Membuat banyak bayangan</li>
+                    <li><strong>Rasengan</strong> - Teknik chakra bola</li>
+                    <li><strong>Nine-Tails Chakra Mode</strong> - Menggunakan kekuatan rubah berekor sembilan</li>
+                </ul>
+            </div>
+            
+            <div class="footer-page">
+                <p>&copy; 2023 Template Web Naruto</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="mosasaurus" class="page">
+        <div class="container-mosasaurus">
+            <div class="header-mosasaurus">
+                <h1>Mosasaurus</h1>
+                <p>Reptil Laut Raksasa dari Zaman Cretaceous</p>
+            </div>
+            
+            <div class="section-mosasaurus">
+                <h2>Pengantar</h2>
+                <p>Mosasaurus adalah genus reptil laut prasejarah yang hidup sekitar 82 hingga 66 juta tahun yang lalu selama periode Cretaceous Akhir. Mereka adalah predator laut terbesar di zamannya.</p>
+                <img src="https://uploads.onecompiler.io/43ygjgmfb/44cpp8ags/1000490724.jpg" alt="Mosasaurus">
+            </div>
+            
+            <div class="section-mosasaurus">
+                <h2>Spesifikasi</h2>
+                <table class="spec-table">
+                    <tr>
+                        <th>Spesifikasi</th>
+                        <th>Detail</th>
+                    </tr>
+                    <tr>
+                        <td>Nama Ilmiah</td>
+                        <td>Mosasaurus hoffmanni</td>
+                    </tr>
+                    <tr>
+                        <td>Panjang</td>
+                        <td>13-18 meter</td>
+                    </tr>
+                    <tr>
+                        <td>Berat</td>
+                        <td>10.000-20.000 kg</td>
+                    </tr>
+                    <tr>
+                        <td>Periode</td>
+                        <td>Kapur Akhir (70-66 juta tahun lalu)</td>
+                    </tr>
+                    <tr>
+                        <td>Makanan</td>
+                        <td>Ikan, ammonit, kura-kura</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="section-mosasaurus">
+                <h2>Fakta Menarik</h2>
+                <ul>
+                    <li>Mosasaurus berarti "kadal sungai" (dari bahasa Latin)</li>
+                    <li>Memiliki sirip seperti ikan dan ekor seperti hiu</li>
+                    <li>Muncul dalam film "Jurassic World"</li>
+                    <li>Pertama kali dideskripsikan oleh Georges Cuvier pada 1808</li>
+                </ul>
+            </div>
+            
+            <div class="footer-page">
+                <p>&copy; 2023 Halaman Web Tentang Mosasaurus</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showPage(pageId, btn) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.nav-btn').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            document.getElementById(pageId).classList.add('active');
+            btn.classList.add('active');
+        }
+    </script>
+</body>
+</html>
